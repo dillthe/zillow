@@ -1,6 +1,8 @@
 package com.github.zillow.repository.listing;
 
 import com.github.zillow.repository.entity.ListingEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface ListingRepository extends JpaRepository<ListingEntity, Integer> {
-    List<ListingEntity> findByPriceBetween(Double minPrice, Double maxPrice);
+    Page<ListingEntity> findByPriceBetween(Double minPrice, Double maxPrice, Pageable pageable);
 
     List<ListingEntity> findByZipcode(String zipcode);
 

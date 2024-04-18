@@ -30,8 +30,8 @@ public class ListingController implements ApiController{
 
     @Operation(summary = "가격 범위로 검색하기 Price Range")
     @GetMapping("/search/price")
-    public ResponseEntity<List<ListingEntity>> getDataByPrice(@RequestParam Double minPrice, @RequestParam Double maxPrice) {
-        List<ListingEntity> listingsWithinPriceRange = listingService.findListingsWithinPriceRange(minPrice, maxPrice);
+    public ResponseEntity<Page<ListingEntity>> getDataByPrice(@RequestParam Double minPrice, @RequestParam Double maxPrice, Pageable pageable) {
+        Page<ListingEntity> listingsWithinPriceRange = listingService.findListingsWithinPriceRange(minPrice, maxPrice, pageable);
         return ResponseEntity.ok(listingsWithinPriceRange);
     }
 

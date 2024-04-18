@@ -22,8 +22,8 @@ public class ListingService {
         return listings;
     }
 
-    public List<ListingEntity> findListingsWithinPriceRange(Double minPrice, Double maxPrice) {
-        List<ListingEntity> listingsFilteredByPrice = listingRepository.findByPriceBetween(minPrice, maxPrice);
+    public Page<ListingEntity> findListingsWithinPriceRange(Double minPrice, Double maxPrice, Pageable pageable) {
+        Page<ListingEntity> listingsFilteredByPrice = listingRepository.findByPriceBetween(minPrice, maxPrice, pageable);
         return listingsFilteredByPrice;
     }
 
