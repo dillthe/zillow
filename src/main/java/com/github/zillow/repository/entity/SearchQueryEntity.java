@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class SearchQueryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "query")

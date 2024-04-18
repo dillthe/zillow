@@ -1,6 +1,7 @@
 package com.github.zillow.web.controller;
 
 import com.github.zillow.repository.entity.ListingEntity;
+import com.github.zillow.repository.entity.SearchQueryEntity;
 import com.github.zillow.service.ListingService;
 import com.github.zillow.service.SearchQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -94,6 +95,13 @@ public class ListingController implements ApiController{
         String searchQuery = "도시로 검색: " + city;
         searchQueryService.saveSearchQuery(searchQuery);
         return ResponseEntity.ok(listingsWithinCity);
+    }
+
+    @Operation(summary = "저장한 쿼리 전체보기")
+    @GetMapping("/query/saved")
+    public ResponseEntity<List<SearchQueryEntity>> getQueryData() {
+        List<SearchQueryEntity> savedQuery = searchQueryService.findAllQueries();
+        return ResponseEntity.ok(savedQuery);
     }
 }
 

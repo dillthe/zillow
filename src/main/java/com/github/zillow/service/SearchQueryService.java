@@ -7,6 +7,8 @@ import com.github.zillow.repository.listing.ListingRepository;
 import com.github.zillow.repository.listing.SearchQueryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -21,9 +23,14 @@ public class SearchQueryService {
 
     public void saveSearchQuery(String searchQuery) {
         SearchQueryEntity searchQueryEntity = new SearchQueryEntity();
+//        searchQueryEntity.setMemberId(searchQuery.getMemberId());
         searchQueryEntity.setQuery(searchQuery);
         searchQueryEntity.setSearchTime(LocalDateTime.now());
         searchQueryRepository.save(searchQueryEntity);
     }
 
+    public List<SearchQueryEntity> findAllQueries() {
+        List<SearchQueryEntity> queries = searchQueryRepository.findAll();
+        return queries;
+    }
 }
