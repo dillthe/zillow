@@ -21,13 +21,14 @@ public class InterestEntity {
     @Column(name = "interest_id")
     private Integer interestId;
 
-    @ManyToOne
-    @JoinColumn(name = "member_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id", referencedColumnName = "member_id", nullable = false)
     private MemberEntity memberEntity;
 
-    @ManyToOne
-    @JoinColumn(name = "listing_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "listing_id", referencedColumnName = "listing_id", nullable = false)
     private ListingEntity listingEntity;
+
 
     @Column(name = "address")
     private String address;

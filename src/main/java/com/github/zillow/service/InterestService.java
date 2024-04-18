@@ -1,20 +1,24 @@
 package com.github.zillow.service;
 
+import com.github.zillow.repository.entity.MemberEntity;
 import com.github.zillow.repository.interest.InterestRepository;
 import com.github.zillow.repository.listing.ListingRepository;
 import com.github.zillow.repository.entity.InterestEntity;
 import com.github.zillow.repository.entity.ListingEntity;
+import com.github.zillow.repository.member.MemberRepository;
 import com.github.zillow.service.exception.InvalidValueException;
 import com.github.zillow.service.exception.NotAcceptException;
 import com.github.zillow.service.exception.NotFoundException;
 import com.github.zillow.service.mapper.InterestMapper;
 import com.github.zillow.web.dto.InterestBody;
+import com.github.zillow.web.dto.InterestDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -23,6 +27,7 @@ public class InterestService {
 
     private final ListingRepository listingRepository;
     private final InterestRepository interestRepository;
+    private final MemberRepository memberRepository;
 
     public Integer addToInterest(InterestBody interestBody) {
         ListingEntity listingEntity = listingRepository.findById(interestBody.getListingId())
@@ -52,11 +57,13 @@ public class InterestService {
             return interestEntityCreated.getInterestId();
     }
 
+    public List<InterestEntity> getInterestList(int memberId){
+        MemberEntity memberEntity = memberRepository.findById(memberId)
+                .orElseThrow(() -> new NotFoundException("부동산 정보를 찾을 수 없습니다."));
+        List<InterestEntity> interestEntityList = interestRepository.findByMemberEntity(memberEntity);
+        return interestEntityList;
+    }
 
-//    public List<InterestEntity> getInterestList(Integer memberId){
-//        List<InterestEntity> interestEntityList = interestRepository.findByMemberEntity(memberId);
-//        return interestEntityList;
-//    }
 
     public void deleteInterest(String interestId) {
        try{

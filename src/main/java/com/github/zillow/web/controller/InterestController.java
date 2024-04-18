@@ -1,8 +1,10 @@
 package com.github.zillow.web.controller;
 
 import com.github.zillow.repository.entity.InterestEntity;
+import com.github.zillow.repository.entity.MemberEntity;
 import com.github.zillow.service.InterestService;
 import com.github.zillow.web.dto.InterestBody;
+import com.github.zillow.web.dto.InterestDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,14 +27,13 @@ public class InterestController implements ApiController{
         return ResponseEntity.ok("관심 부동산에 추가되었습니다.");
     }
 
-
-//    @Operation(summary="사용자별 관심있는 부동산 리스트 조회")
-//    @GetMapping("/interest/list")
-//    public ResponseEntity<List<InterestEntity>> getInterestList(@RequestBody Integer memberId){
-//        List<InterestEntity> interestEntityList = interestService.getInterestList(memberId);
-//        return ResponseEntity.ok(interestEntityList);
-//    }
-
+//부동산 리스트 조회가 안됨. 아이디 JPA 오류
+    @Operation(summary="사용자별 관심있는 부동산 리스트 조회")
+    @GetMapping("/interest/list")
+    public ResponseEntity<List<InterestEntity>> getInterestList(@RequestBody int memberId){
+        List<InterestEntity> interestEntityList = interestService.getInterestList(memberId);
+        return ResponseEntity.ok(interestEntityList);
+    }
 
     @Operation(summary = "관심있는 부동산 정보 삭제")
     @DeleteMapping("/interest/delete/{interestId}")

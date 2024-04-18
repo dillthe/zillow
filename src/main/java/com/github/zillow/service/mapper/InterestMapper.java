@@ -18,11 +18,3 @@ public interface InterestMapper {
 //    InterestDTO interestEntityToInterestDTO(InterestEntity interestEntity);
 
 }
-
-//address / zipcode / price / bedrooms / bathrooms / sqft / homeStatus/
-//    @Mapping(target="sqft", source="listingEntity.sqft")
-//    @Mapping(target="address", source="listingEntity.address")
-//    @Mapping(target="zipcode", source="listingEntity.zipcode")
-//    @Mapping(target="price", source="listingEntity.price")
-//    @Mapping(target="bedrooms", source="listingEntity.bedrooms")
-//    @Mapping(target="bathrooms", source="listingEntity.bathrooms")
