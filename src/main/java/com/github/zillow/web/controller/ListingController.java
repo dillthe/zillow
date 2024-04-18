@@ -6,6 +6,8 @@ import com.github.zillow.service.SearchQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +20,13 @@ import java.util.List;
 public class ListingController implements ApiController{
     private final ListingService listingService;
     private final  SearchQueryService searchQueryService;
+
+    @Operation(summary = "리스팅 전체 검색하기")
+    @GetMapping("/search")
+    public ResponseEntity<Page<ListingEntity>> getListingData(Pageable pageable) {
+        Page<ListingEntity> listings = listingService.findAllListings(pageable);
+        return ResponseEntity.ok(listings);
+    }
 
     @Operation(summary = "가격 범위로 검색하기 Price Range")
     @GetMapping("/search/price")

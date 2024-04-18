@@ -4,6 +4,8 @@ import com.github.zillow.repository.listing.ListingRepository;
 import com.github.zillow.repository.entity.ListingEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,6 +16,11 @@ import java.util.List;
 @Service
 public class ListingService {
     private final ListingRepository listingRepository;
+
+    public Page<ListingEntity> findAllListings(Pageable pageable) {
+        Page<ListingEntity> listings = listingRepository.findAll(pageable);
+        return listings;
+    }
 
     public List<ListingEntity> findListingsWithinPriceRange(Double minPrice, Double maxPrice) {
         List<ListingEntity> listingsFilteredByPrice = listingRepository.findByPriceBetween(minPrice, maxPrice);
