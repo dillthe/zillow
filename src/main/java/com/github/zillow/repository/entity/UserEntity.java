@@ -1,22 +1,20 @@
 package com.github.zillow.repository.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
-@Table(name = "member")
-public class MemberEntity {
+@Table(name = "user")
+public class UserEntity {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "member_id")
-        private Integer memberId;
+        @Column(name = "user_id")
+        private Integer userId;
 
         @Column(name = "email")
         private String email;

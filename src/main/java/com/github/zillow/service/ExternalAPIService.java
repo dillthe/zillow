@@ -1,14 +1,20 @@
 package com.github.zillow.service;
 
-import com.github.zillow.web.dto.ListingDTO;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -33,13 +39,44 @@ public class ExternalAPIService {
     }
 
 
-    //리스팅 안불러와짐, 왜 안돼???? 왜?????????????!
-    public String getListingData(String url){
+    public Page<String> getListingData(String url, Pageable pageable) {
         Map<String, String> queryParams = new HashMap<>();
         queryParams.put("api_key", api_key);
         queryParams.put("url", url);
-        return restTemplate.getForObject(buildUrl("/listing", queryParams), String.class);
-          }
+
+        String uri = buildUrl("/listing", queryParams);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Pageable> requestEntity = new HttpEntity<>(pageable, headers);
+        ResponseEntity<String> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, String.class);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            JsonNode root = objectMapper.readTree(responseEntity.getBody());
+            JsonNode content = root.get("content");
+            String[] contentArray = objectMapper.treeToValue(content, String[].class);
+
+//            PageImpl<String> totalElements = new PageImpl<>(Arrays.asList(contentArray), pageable, root.get("totalElements").asLong());
+            List<String> contentList = Arrays.stream(contentArray)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
+            PageImpl<String> totalElements = new PageImpl<>(contentList, pageable, root.get("totalElements").asLong());
+
+
+            return totalElements;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+//    public Page<String> getListingData(String url, Pageable pageable){
+//        Map<String, String> queryParams = new HashMap<>();
+//        queryParams.put("api_key", api_key);
+//        queryParams.put("url", url);
+//        return restTemplate.getForObject(buildUrl("/listing", queryParams), String.class, pageable);
+//          }
 
 
 

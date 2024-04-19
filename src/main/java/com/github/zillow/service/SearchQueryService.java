@@ -23,7 +23,7 @@ public class SearchQueryService {
 
     public void saveSearchQuery(String searchQuery) {
         SearchQueryEntity searchQueryEntity = new SearchQueryEntity();
-//        searchQueryEntity.setMemberId(searchQuery.getMemberId());
+//        searchQueryEntity.setUserId(searchQuery.getUserId());
         searchQueryEntity.setQuery(searchQuery);
         searchQueryEntity.setSearchTime(LocalDateTime.now());
         searchQueryRepository.save(searchQueryEntity);

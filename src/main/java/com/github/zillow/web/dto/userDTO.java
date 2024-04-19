@@ -11,8 +11,8 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class memberDTO {
-    private Integer memberId;
+public class userDTO {
+    private Integer userId;
     private String email;
     private String name;
     private String password;

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @ToString
 public class SearchQueryBody {
 
-    private Integer memberId;
+//    private Integer userId;
         private String query;
         private LocalDateTime searchTime;
 

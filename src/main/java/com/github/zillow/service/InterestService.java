@@ -1,23 +1,21 @@
 package com.github.zillow.service;
 
-import com.github.zillow.repository.entity.MemberEntity;
+import com.github.zillow.repository.entity.UserEntity;
 import com.github.zillow.repository.interest.InterestRepository;
 import com.github.zillow.repository.listing.ListingRepository;
 import com.github.zillow.repository.entity.InterestEntity;
 import com.github.zillow.repository.entity.ListingEntity;
-import com.github.zillow.repository.member.MemberRepository;
+import com.github.zillow.repository.user.UserRepository;
 import com.github.zillow.service.exception.InvalidValueException;
 import com.github.zillow.service.exception.NotAcceptException;
 import com.github.zillow.service.exception.NotFoundException;
 import com.github.zillow.service.mapper.InterestMapper;
 import com.github.zillow.web.dto.InterestBody;
-import com.github.zillow.web.dto.InterestDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -27,7 +25,7 @@ public class InterestService {
 
     private final ListingRepository listingRepository;
     private final InterestRepository interestRepository;
-    private final MemberRepository memberRepository;
+    private final UserRepository userRepository;
 
     public Integer addToInterest(InterestBody interestBody) {
         ListingEntity listingEntity = listingRepository.findById(interestBody.getListingId())
@@ -47,7 +45,7 @@ public class InterestService {
        InterestEntity interestEntityCreated;
         try {
             interestEntityCreated = interestRepository.save(interestEntity);
-        } //여기서 왜 에러문 메세지가 출력이 안되고,2024-04-16T15:42:27.853-04:00 ERROR 33048 --- [nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry '1-10213017' for key 'interest.member_id 이런식으로 에러메세지만 뜬다.
+        } //여기서 왜 에러문 메세지가 출력이 안되고,2024-04-16T15:42:27.853-04:00 ERROR 33048 --- [nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry '1-10213017' for key 'interest.user_id 이런식으로 에러메세지만 뜬다.
         catch (DataIntegrityViolationException e) {
             //e.printStackTrace();
             throw new NotAcceptException("관심 부동산 리스트에 이미 저장되어 있습니다.");
@@ -57,10 +55,10 @@ public class InterestService {
             return interestEntityCreated.getInterestId();
     }
 
-    public List<InterestEntity> getInterestList(int memberId){
-        MemberEntity memberEntity = memberRepository.findById(memberId)
+    public List<InterestEntity> getInterestList(int userId){
+        UserEntity userEntity = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("부동산 정보를 찾을 수 없습니다."));
-        List<InterestEntity> interestEntityList = interestRepository.findByMemberEntity(memberEntity);
+        List<InterestEntity> interestEntityList = interestRepository.findByUserEntity(userEntity);
         return interestEntityList;
     }
 

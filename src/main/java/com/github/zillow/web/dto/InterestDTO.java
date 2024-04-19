@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class InterestDTO {
     private Integer interestId;
-    private Integer memberId;
+    private Integer userId;
     private Integer listingId;
     private String address;
     private String city;

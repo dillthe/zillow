@@ -1,7 +1,6 @@
 package com.github.zillow.web.controller;
 
 import com.github.zillow.repository.entity.InterestEntity;
-import com.github.zillow.repository.entity.MemberEntity;
 import com.github.zillow.service.InterestService;
 import com.github.zillow.web.dto.InterestBody;
 import com.github.zillow.web.dto.InterestDTO;
@@ -22,16 +21,15 @@ public class InterestController implements ApiController{
     @Operation(summary = "관심있는 부동산 정보 추가")
     @PostMapping("/interest/add")
     public ResponseEntity<String> addToInterest(@RequestBody InterestBody interestBody){
-      //  interestBody.setMemberId(RequestUtil.getMemberId());
+      //  interestBody.setUserId(RequestUtil.getUserId());
         interestService.addToInterest(interestBody);
         return ResponseEntity.ok("관심 부동산에 추가되었습니다.");
     }
 
-//부동산 리스트 조회가 안됨. 아이디 JPA 오류
     @Operation(summary="사용자별 관심있는 부동산 리스트 조회")
     @GetMapping("/interest/list")
-    public ResponseEntity<List<InterestEntity>> getInterestList(@RequestBody int memberId){
-        List<InterestEntity> interestEntityList = interestService.getInterestList(memberId);
+    public ResponseEntity<List<InterestEntity>> getInterestList(@RequestParam int userId){
+        List<InterestEntity> interestEntityList = interestService.getInterestList(userId);
         return ResponseEntity.ok(interestEntityList);
     }
 

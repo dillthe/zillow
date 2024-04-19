@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -55,10 +56,13 @@ public class ListingEntity {
 
     @Column(name="home_type")
     private String homeType;
-}
-//    @JsonProperty("sqft")
-//@JsonIgnoreProperties(ignoreUnknown = true)
 
+    @OneToMany(mappedBy = "listingEntity", fetch = FetchType.LAZY)
+    private List<ImageEntity> imageList;
+}
+
+//외부API리스트 불러와지면 로컬DB에 저장할 때 쓰기.
+//@JsonIgnoreProperties(ignoreUnknown = true)
 //    @JsonProperty("homeStatus")
 //    @JsonProperty("bathrooms")
 //    @JsonProperty("bedrooms")
@@ -68,3 +72,4 @@ public class ListingEntity {
 //    @JsonProperty("zipcode")
 //    @JsonProperty("streetAddress")
 //    @JsonProperty("zpid")
+//    @JsonProperty("sqft")
