@@ -1,6 +1,7 @@
 package com.github.zillow.web.controller;
 
 import com.github.zillow.repository.entity.InterestEntity;
+import com.github.zillow.repository.userDetails.CustomUserDetails;
 import com.github.zillow.service.InterestService;
 import com.github.zillow.web.dto.InterestBody;
 import com.github.zillow.web.dto.InterestDTO;
@@ -8,6 +9,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,15 +22,23 @@ public class InterestController implements ApiController{
 
     @Operation(summary = "관심있는 부동산 정보 추가")
     @PostMapping("/interest/add")
-    public ResponseEntity<String> addToInterest(@RequestBody InterestBody interestBody){
-      //  interestBody.setUserId(RequestUtil.getUserId());
+    public ResponseEntity<String> addToInterest(
+            @AuthenticationPrincipal CustomUserDetails customUserDetails,
+            @RequestBody InterestBody interestBody){
+
+        interestBody.setUserId(customUserDetails.getUserId());
         interestService.addToInterest(interestBody);
         return ResponseEntity.ok("관심 부동산에 추가되었습니다.");
     }
 
     @Operation(summary="사용자별 관심있는 부동산 리스트 조회")
     @GetMapping("/interest/list")
-    public ResponseEntity<List<InterestEntity>> getInterestList(@RequestParam int userId){
+    public ResponseEntity<List<InterestEntity>> getInterestList(
+            @AuthenticationPrincipal CustomUserDetails customUserDetails
+//            @RequestParam int userId
+            ){
+//        List<InterestEntity> interestEntityList = interestService.getInterestList(userId);
+        Integer userId = customUserDetails.getUserId();
         List<InterestEntity> interestEntityList = interestService.getInterestList(userId);
         return ResponseEntity.ok(interestEntityList);
     }

@@ -8,9 +8,26 @@ spring:
     username: root
     password: 8282
 
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#        ddl-auto: none
+
   jpa:
+    hibernate:
+      ddl-auto: update
+#      naming:
+#        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-        ddl-auto: none
+        show_sql: true
+        format_sql: true
+        id:
+          new_generator_mappings: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 

@@ -1,6 +1,7 @@
 package com.github.zillow.repository.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -57,6 +58,7 @@ public class ListingEntity {
     @Column(name="home_type")
     private String homeType;
 
+//    @JsonManagedReference
     @OneToMany(mappedBy = "listingEntity", fetch = FetchType.LAZY)
     private List<ImageEntity> imageList;
 }

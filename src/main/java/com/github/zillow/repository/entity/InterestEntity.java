@@ -1,5 +1,6 @@
 package com.github.zillow.repository.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,10 +21,12 @@ public class InterestEntity {
     @Column(name = "interest_id")
     private Integer interestId;
 
+//    @JsonBackReference //이거 넣으면 User정보가 출력이 안됨.
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private UserEntity userEntity;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "listing_id", referencedColumnName = "listing_id", nullable = false)
     private ListingEntity listingEntity;
