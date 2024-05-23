@@ -3,11 +3,19 @@ server:
 
 spring:
   datasource:
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/zillow?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: 8282
 
+#spring:
+#  datasource:
+#    username: root
+#    password: 8282
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/zillow?useUnicode=true&characterEncoding=UTF-8
+
+#
 #  jpa:
 #    properties:
 #      hibernate:
