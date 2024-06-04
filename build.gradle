@@ -23,7 +23,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'mysql:mysql-connector-java:8.0.28'
+    implementation 'mysql:mysql-connector-java:8.0.30'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.jetbrains:annotations:24.0.0'
 
@@ -61,9 +62,15 @@ dependencies {
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
+    //최신 버전으로 변경
+    implementation 'com.google.protobuf:protobuf-java:3.21.12'
 
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('bootJar'){
+    mainClass = 'com.github.zillow.ZillowApplication'
 }

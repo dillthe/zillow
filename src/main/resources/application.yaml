@@ -20,26 +20,12 @@ jwt:
 #    password: 8282
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/zillow?useUnicode=true&characterEncoding=UTF-8
-
 #
 #  jpa:
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.MySQL8Dialect
-#        ddl-auto: none
-
-  jpa:
-    hibernate:
-      ddl-auto: update
+#    hibernate:
+#      ddl-auto: update
 #      naming:
 #        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        show_sql: true
-        format_sql: true
-        id:
-          new_generator_mappings: true
-
+#
 
 
