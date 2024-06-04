@@ -23,7 +23,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'mysql:mysql-connector-java:8.0.28'
+    implementation 'mysql:mysql-connector-java:8.0.30'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.jetbrains:annotations:24.0.0'
 
@@ -66,4 +67,8 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('bootJar'){
+    mainClass = 'com.github.zillow.ZillowApplication'
 }

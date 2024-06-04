@@ -1,0 +1,23 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+  jpa:
+    open-in-view: false
+
+  datasource:
+    username: ${DATABASE_USERNAME} //동일해서 제외
+    password: ${DATABASE_MARIA_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://database-1.c5cm8q4o8kra.us-east-1.rds.amazonaws.com:3306/zillow?useUnicode=true&characterEncoding=UTF-8
+
+
+logging:
+  config: classpath:logback-spring-prod.xml
+#
+#Spring:
+#  datasource:
+#    username: ${DATABASE_USERNAME} //동일해서 제외
+#    password: ${DATABASE_MARIA_PASSWORD}
+#    driver-class-name: org.mariadb.jdbc.Driver
+#    url: jdbc:mariadb://database-1.c5cm8q4o8kra.us-east-1.rds.amazonaws.com:3306/zillow?useUnicode=true&characterEncoding=UTF-8

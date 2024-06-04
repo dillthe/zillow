@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  jpa:
+    open-in-view: false
+
+server:
+  port: 8080
+
+logging:
+  config: classpath:logback-spring-local.xml
+  level:
+    org:
+      hibernate:
+        SQL:DEBUG
+
