@@ -1,8 +1,5 @@
 package com.github.zillow.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -12,18 +9,14 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import java.util.*;
-import java.util.stream.Collectors;
-
-
 @RequiredArgsConstructor
 @Slf4j
 @Service
 public class ExternalAPIService {
     private static final String API_URL = "https://app.scrapeak.com/v1/scrapers/zillow";
     //외부 API 형식 : "https://app.scrapeak.com/v1/scrapers/zillow/property?api_key={}&zpid={ZPID}"
-    private String api_key = "90237350-6c25-4e9f-b566-40c53ce26f2d";
+    private final String api_key = "90237350-6c25-4e9f-b566-40c53ce26f2d";
      RestTemplate restTemplate = new RestTemplate();
 
     public String buildUrl(String path, Map<String, String> queryParams) {
@@ -44,43 +37,47 @@ public class ExternalAPIService {
         queryParams.put("api_key", api_key);
         queryParams.put("url", url);
 
-        String uri = buildUrl("/listing", queryParams);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        HttpEntity<Pageable> requestEntity = new HttpEntity<>(pageable, headers);
-        ResponseEntity<String> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, String.class);
-
-        ObjectMapper objectMapper = new ObjectMapper();
+        String finalUrl = buildUrl("/listing", queryParams);
         try {
-            JsonNode root = objectMapper.readTree(responseEntity.getBody());
-            JsonNode content = root.get("content");
-            String[] contentArray = objectMapper.treeToValue(content, String[].class);
+            System.out.println("Final URL: " + finalUrl);
+            ResponseEntity<String> response = restTemplate.getForEntity(finalUrl, String.class);
+            String responseBody = response.getBody();
 
-//            PageImpl<String> totalElements = new PageImpl<>(Arrays.asList(contentArray), pageable, root.get("totalElements").asLong());
-            List<String> contentList = Arrays.stream(contentArray)
-                    .filter(Objects::nonNull)
-                    .collect(Collectors.toList());
-            PageImpl<String> totalElements = new PageImpl<>(contentList, pageable, root.get("totalElements").asLong());
+            System.out.println("API Response: " + responseBody);
 
+             List<String> listings = new ArrayList<>();
 
-            return totalElements;
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return null;
+            int start = (int) pageable.getOffset();
+            int end = Math.min((start + pageable.getPageSize()), 0/*listings.size()*/);
+            List<String> pageContent = listings.subList(start, end);
+
+            return new PageImpl<>(pageContent, pageable, listings.size());
+
+        } catch (Exception e) {
+//            e.printStackTrace();
+            throw new RuntimeException("Failed to fetch data from external API", e);
         }
     }
-//    public Page<String> getListingData(String url, Pageable pageable){
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+//    public String getListingDatas(String url) {
 //        Map<String, String> queryParams = new HashMap<>();
 //        queryParams.put("api_key", api_key);
-//        queryParams.put("url", url);
-//        return restTemplate.getForObject(buildUrl("/listing", queryParams), String.class, pageable);
-//          }
+//        try {
+//            // URL 인코딩
+////            String encodedUrl = URLEncoder.encode(url, StandardCharsets.UTF_8.toString());
+//            queryParams.put("url", url);
+//
+//            String finalUrl = buildUrl("/listing", queryParams);
+//            System.out.println("Final URL: " + finalUrl); // 디버깅을 위해 URL 출력
+//
+//            ResponseEntity<String> response = restTemplate.getForEntity(finalUrl, String.class);
+//            return response.getBody();
+//        } catch (RestClientException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
-
-
-    public String getDetailData(Integer zpid) {
+        public String getDetailData(Integer zpid) {
         Map<String, String> queryParams = new HashMap<>();
         queryParams.put("api_key", api_key);
         queryParams.put("zpid", zpid.toString());
