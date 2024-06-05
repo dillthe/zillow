@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Getter
 @Setter
-@ConfigurationProperties(prefix="datasource")
+@ConfigurationProperties(prefix="spring.datasource")
 public class DataSourceProperties {
     private String username;
     private String password;
