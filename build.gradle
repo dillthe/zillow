@@ -22,11 +22,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'mysql:mysql-connector-java:8.0.30'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.jetbrains:annotations:24.0.0'
 
     //Lombok
     compileOnly 'org.projectlombok:lombok'
@@ -35,9 +33,6 @@ dependencies {
     // Test Lombok
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
-
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'com.h2database:h2'
 
 
     //Mapstruct
@@ -68,6 +63,9 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-core:2.14.0' // 최신 버전으로 변경
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0' // 최신 버전으로 변경
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.0' // 최신 버전으로 변경
+
+    //비동기방식 작업처리 WebClient사용
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
 
 }

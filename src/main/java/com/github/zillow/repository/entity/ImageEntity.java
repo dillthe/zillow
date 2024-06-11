@@ -19,8 +19,9 @@ public class ImageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer imageId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "listing_id")
+    @JsonBackReference
     private ListingEntity listingEntity;
 
     @Column(name = "image")

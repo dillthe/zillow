@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -58,8 +59,8 @@ public class ListingEntity {
     @Column(name="home_type")
     private String homeType;
 
-//    @JsonManagedReference
-    @OneToMany(mappedBy = "listingEntity", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "listingEntity", fetch = FetchType.EAGER)
     private List<ImageEntity> imageList;
 }
 

@@ -12,6 +12,9 @@ spring:
 #    url: jdbc:mariadb://database-1.c5cm8q4o8kra.us-east-1.rds.amazonaws.com:3306/zillow?useUnicode=true&characterEncoding=UTF-8
 
 
+jwt:
+  secret-key-source: ${JWT_SECRET_KEY}
+
 logging:
   config: classpath:logback-spring-prod.xml
 

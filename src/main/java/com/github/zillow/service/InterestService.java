@@ -1,10 +1,10 @@
 package com.github.zillow.service;
 
+import com.github.zillow.repository.entity.InterestEntity;
+import com.github.zillow.repository.entity.ListingEntity;
 import com.github.zillow.repository.entity.UserEntity;
 import com.github.zillow.repository.interest.InterestRepository;
 import com.github.zillow.repository.listing.ListingRepository;
-import com.github.zillow.repository.entity.InterestEntity;
-import com.github.zillow.repository.entity.ListingEntity;
 import com.github.zillow.repository.user.UserRepository;
 import com.github.zillow.service.exception.InvalidValueException;
 import com.github.zillow.service.exception.NotAcceptException;
@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -55,6 +56,7 @@ public class InterestService {
             return interestEntityCreated.getInterestId();
     }
 
+    @Transactional
     public List<InterestEntity> getInterestList(int userId){
         UserEntity userEntity = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("부동산 정보를 찾을 수 없습니다."));
