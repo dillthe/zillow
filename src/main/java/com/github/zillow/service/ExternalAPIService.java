@@ -25,7 +25,7 @@ public class ExternalAPIService {
     //외부 API 형식 : "https://app.scrapeak.com/v1/scrapers/zillow/property?api_key={}&zpid={ZPID}"
 
     @Value("${API_KEY}")
-    private String api_key;
+    private String apiKey;
 
     RestTemplate restTemplate = new RestTemplate();
     //    private final WebClient webClient;
@@ -73,7 +73,7 @@ public class ExternalAPIService {
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
     public String getListingDatas(String url) {
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("api_key", api_key);
+        queryParams.put("api_key", apiKey);
         try {
             // URL 인코딩
 //            String encodedUrl = URLEncoder.encode(url, StandardCharsets.UTF_8.toString());
@@ -91,14 +91,14 @@ public class ExternalAPIService {
 //
     public String getDetailData(Integer zpid) {
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("api_key", api_key);
+        queryParams.put("api_key", apiKey);
         queryParams.put("zpid", zpid.toString());
         return restTemplate.getForObject(buildUrl("/property", queryParams), String.class);
     }
 
     public String getQueryData(String query) {
         Map<String, String> queryParams = new HashMap<>();
-        queryParams.put("api_key", api_key);
+        queryParams.put("api_key", apiKey);
         queryParams.put("q", query);
         return restTemplate.getForObject(buildUrl("/locationSuggestions", queryParams), String.class);
     }

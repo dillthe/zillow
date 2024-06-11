@@ -3285,3 +3285,6 @@ Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'AP
 2024-06-10 23:01:42.155 [http-nio-8080-exec-1] [34mINFO [0;39m [36mc.g.zillow.web.filters.LoggingFilter[0;39m - GET/api/detail 요청이 들어왔습니다.
 2024-06-10 23:01:42.181 [http-nio-8080-exec-1] [34mINFO [0;39m [36mc.g.z.service.ExternalAPIService[0;39m - Built URL: https://app.scrapeak.com/v1/scrapers/zillow/property?api_key=90237350-6c25-4e9f-b566-40c53ce26f2d&zpid=2239122
 2024-06-10 23:01:46.958 [http-nio-8080-exec-1] [34mINFO [0;39m [36mc.g.zillow.web.filters.LoggingFilter[0;39m - GET/api/detail가 상태 200 로 응답이 나갑니다.
+2024-06-10 23:09:42.111 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-10 23:09:42.113 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Shutdown initiated...
+2024-06-10 23:09:42.258 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Shutdown completed.
