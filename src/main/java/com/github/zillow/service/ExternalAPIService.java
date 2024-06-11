@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
@@ -23,8 +24,8 @@ public class ExternalAPIService {
     private static final String API_URL = "https://app.scrapeak.com/v1/scrapers/zillow";
     //외부 API 형식 : "https://app.scrapeak.com/v1/scrapers/zillow/property?api_key={}&zpid={ZPID}"
 
-    private String api_key = "90237350-6c25-4e9f-b566-40c53ce26f2d";
-
+    @Value("${API_KEY}")
+    private String api_key;
 
     RestTemplate restTemplate = new RestTemplate();
     //    private final WebClient webClient;

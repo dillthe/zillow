@@ -3161,3 +3161,127 @@ java.lang.IllegalStateException: No ConfigurationProperties annotation found on 
 2024-06-10 22:51:22.984 [http-nio-8080-exec-1] [34mINFO [0;39m [36mc.g.zillow.web.filters.LoggingFilter[0;39m - GET/api/interest/list가 상태 200 로 응답이 나갑니다.
 2024-06-10 22:51:53.761 [http-nio-8080-exec-2] [34mINFO [0;39m [36mc.g.zillow.web.filters.LoggingFilter[0;39m - POST/api/interest/add 요청이 들어왔습니다.
 2024-06-10 22:51:54.139 [http-nio-8080-exec-2] [34mINFO [0;39m [36mc.g.zillow.web.filters.LoggingFilter[0;39m - POST/api/interest/add가 상태 200 로 응답이 나갑니다.
+2024-06-10 22:55:12.176 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-10 22:55:12.177 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Shutdown initiated...
+2024-06-10 22:55:12.324 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Shutdown completed.
+2024-06-10 22:55:15.201 [main] [34mINFO [0;39m [36mcom.github.zillow.ZillowApplication[0;39m - Starting ZillowApplication using Java 17.0.9 with PID 9284 (C:\Users\seulg\Desktop\supercoding\zillow\build\classes\java\main started by seulg in C:\Users\seulg\Desktop\supercoding\zillow)
+2024-06-10 22:55:15.203 [main] [34mINFO [0;39m [36mcom.github.zillow.ZillowApplication[0;39m - The following 1 profile is active: "prod"
+2024-06-10 22:55:15.987 [main] [34mINFO [0;39m [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-10 22:55:16.142 [main] [34mINFO [0;39m [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - Finished Spring Data repository scanning in 146 ms. Found 7 JPA repository interfaces.
+2024-06-10 22:55:16.608 [main] [34mINFO [0;39m [36mo.s.b.w.e.tomcat.TomcatWebServer[0;39m - Tomcat initialized with port 8080 (http)
+2024-06-10 22:55:16.617 [main] [34mINFO [0;39m [36mo.a.coyote.http11.Http11NioProtocol[0;39m - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-10 22:55:16.618 [main] [34mINFO [0;39m [36mo.a.catalina.core.StandardService[0;39m - Starting service [Tomcat]
+2024-06-10 22:55:16.619 [main] [34mINFO [0;39m [36mo.a.catalina.core.StandardEngine[0;39m - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-10 22:55:16.691 [main] [34mINFO [0;39m [36mo.a.c.c.C.[Tomcat].[localhost].[/][0;39m - Initializing Spring embedded WebApplicationContext
+2024-06-10 22:55:16.691 [main] [34mINFO [0;39m [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - Root WebApplicationContext: initialization completed in 1435 ms
+2024-06-10 22:55:16.809 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Starting...
+2024-06-10 22:55:17.206 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.pool.HikariPool[0;39m - HikariPool-1 - Added connection org.mariadb.jdbc.MariaDbConnection@7196a8f1
+2024-06-10 22:55:17.213 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Start completed.
+2024-06-10 22:55:17.272 [main] [34mINFO [0;39m [36mo.h.jpa.internal.util.LogHelper[0;39m - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-10 22:55:17.323 [main] [34mINFO [0;39m [36morg.hibernate.Version[0;39m - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-10 22:55:17.353 [main] [34mINFO [0;39m [36mo.h.c.i.RegionFactoryInitiator[0;39m - HHH000026: Second-level cache disabled
+2024-06-10 22:55:17.574 [main] [34mINFO [0;39m [36mo.s.o.j.p.SpringPersistenceUnitInfo[0;39m - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-10 22:55:18.603 [main] [34mINFO [0;39m [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-10 22:55:18.606 [main] [34mINFO [0;39m [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-10 22:55:18.811 [main] [34mINFO [0;39m [36mo.s.d.j.r.query.QueryEnhancerFactory[0;39m - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-10 22:55:20.253 [main] [34mINFO [0;39m [36mc.g.z.c.s.SecurityConfiguration[0;39m - security filter실행
+2024-06-10 22:55:20.265 [main] [34mINFO [0;39m [36mo.s.s.web.DefaultSecurityFilterChain[0;39m - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26a2106e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c75b0c8, org.springframework.security.web.context.SecurityContextHolderFilter@3b386ba7, org.springframework.security.web.header.HeaderWriterFilter@28a821f9, org.springframework.web.filter.CorsFilter@23c95292, org.springframework.security.web.authentication.logout.LogoutFilter@2b2f8cf, com.github.zillow.web.filters.JwtAuthenticationFilter@2f43c73a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@644e9953, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4115b8a7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19d483dc, org.springframework.security.web.session.SessionManagementFilter@7bcd497, org.springframework.security.web.access.ExceptionTranslationFilter@1a26eecb, org.springframework.security.web.access.intercept.AuthorizationFilter@3d1319b]
+2024-06-10 22:55:20.506 [main] [34mINFO [0;39m [36mo.a.coyote.http11.Http11NioProtocol[0;39m - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-10 22:55:20.530 [main] [34mINFO [0;39m [36mo.s.b.w.e.tomcat.TomcatWebServer[0;39m - Tomcat started on port 8080 (http) with context path ''
+2024-06-10 22:55:20.538 [main] [34mINFO [0;39m [36mcom.github.zillow.ZillowApplication[0;39m - Started ZillowApplication in 5.871 seconds (process running for 6.464)
+2024-06-10 23:00:28.354 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-10 23:00:28.356 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Shutdown initiated...
+2024-06-10 23:00:28.502 [SpringApplicationShutdownHook] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Shutdown completed.
+2024-06-10 23:01:02.565 [main] [34mINFO [0;39m [36mcom.github.zillow.ZillowApplication[0;39m - Starting ZillowApplication using Java 17.0.9 with PID 25028 (C:\Users\seulg\Desktop\supercoding\zillow\build\classes\java\main started by seulg in C:\Users\seulg\Desktop\supercoding\zillow)
+2024-06-10 23:01:02.568 [main] [34mINFO [0;39m [36mcom.github.zillow.ZillowApplication[0;39m - The following 1 profile is active: "prod"
+2024-06-10 23:01:03.330 [main] [34mINFO [0;39m [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-10 23:01:03.481 [main] [34mINFO [0;39m [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - Finished Spring Data repository scanning in 144 ms. Found 7 JPA repository interfaces.
+2024-06-10 23:01:03.980 [main] [34mINFO [0;39m [36mo.s.b.w.e.tomcat.TomcatWebServer[0;39m - Tomcat initialized with port 8080 (http)
+2024-06-10 23:01:03.988 [main] [34mINFO [0;39m [36mo.a.coyote.http11.Http11NioProtocol[0;39m - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-10 23:01:03.989 [main] [34mINFO [0;39m [36mo.a.catalina.core.StandardService[0;39m - Starting service [Tomcat]
+2024-06-10 23:01:03.990 [main] [34mINFO [0;39m [36mo.a.catalina.core.StandardEngine[0;39m - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-10 23:01:04.061 [main] [34mINFO [0;39m [36mo.a.c.c.C.[Tomcat].[localhost].[/][0;39m - Initializing Spring embedded WebApplicationContext
+2024-06-10 23:01:04.062 [main] [34mINFO [0;39m [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - Root WebApplicationContext: initialization completed in 1440 ms
+2024-06-10 23:01:04.191 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Starting...
+2024-06-10 23:01:04.536 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.pool.HikariPool[0;39m - HikariPool-1 - Added connection org.mariadb.jdbc.MariaDbConnection@50dc49e1
+2024-06-10 23:01:04.538 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Start completed.
+2024-06-10 23:01:04.582 [main] [34mINFO [0;39m [36mo.h.jpa.internal.util.LogHelper[0;39m - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-10 23:01:04.634 [main] [34mINFO [0;39m [36morg.hibernate.Version[0;39m - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-10 23:01:04.668 [main] [34mINFO [0;39m [36mo.h.c.i.RegionFactoryInitiator[0;39m - HHH000026: Second-level cache disabled
+2024-06-10 23:01:04.896 [main] [34mINFO [0;39m [36mo.s.o.j.p.SpringPersistenceUnitInfo[0;39m - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-10 23:01:05.938 [main] [34mINFO [0;39m [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-10 23:01:05.942 [main] [34mINFO [0;39m [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-10 23:01:06.139 [main] [34mINFO [0;39m [36mo.s.d.j.r.query.QueryEnhancerFactory[0;39m - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-10 23:01:06.576 [main] [31mWARN [0;39m [36mo.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext[0;39m - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'externalAPIService': Injection of autowired dependencies failed
+2024-06-10 23:01:06.577 [main] [34mINFO [0;39m [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-10 23:01:06.579 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Shutdown initiated...
+2024-06-10 23:01:06.732 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Shutdown completed.
+2024-06-10 23:01:06.733 [main] [34mINFO [0;39m [36mo.a.catalina.core.StandardService[0;39m - Stopping service [Tomcat]
+2024-06-10 23:01:06.744 [main] [34mINFO [0;39m [36mo.s.b.a.l.ConditionEvaluationReportLogger[0;39m - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-06-10 23:01:06.759 [main] [1;31mERROR[0;39m [36mo.s.boot.SpringApplication[0;39m - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'externalAPIService': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1419)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.github.zillow.ZillowApplication.main(ZillowApplication.java:10)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'API_KEY' in value "${API_KEY}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:922)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1374)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:784)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:767)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:508)
+	... 17 common frames omitted
+2024-06-10 23:01:30.431 [main] [34mINFO [0;39m [36mcom.github.zillow.ZillowApplication[0;39m - Starting ZillowApplication using Java 17.0.9 with PID 21824 (C:\Users\seulg\Desktop\supercoding\zillow\build\classes\java\main started by seulg in C:\Users\seulg\Desktop\supercoding\zillow)
+2024-06-10 23:01:30.435 [main] [34mINFO [0;39m [36mcom.github.zillow.ZillowApplication[0;39m - The following 1 profile is active: "prod"
+2024-06-10 23:01:31.179 [main] [34mINFO [0;39m [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-10 23:01:31.328 [main] [34mINFO [0;39m [36mo.s.d.r.c.RepositoryConfigurationDelegate[0;39m - Finished Spring Data repository scanning in 141 ms. Found 7 JPA repository interfaces.
+2024-06-10 23:01:31.805 [main] [34mINFO [0;39m [36mo.s.b.w.e.tomcat.TomcatWebServer[0;39m - Tomcat initialized with port 8080 (http)
+2024-06-10 23:01:31.813 [main] [34mINFO [0;39m [36mo.a.coyote.http11.Http11NioProtocol[0;39m - Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-10 23:01:31.816 [main] [34mINFO [0;39m [36mo.a.catalina.core.StandardService[0;39m - Starting service [Tomcat]
+2024-06-10 23:01:31.816 [main] [34mINFO [0;39m [36mo.a.catalina.core.StandardEngine[0;39m - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-10 23:01:31.885 [main] [34mINFO [0;39m [36mo.a.c.c.C.[Tomcat].[localhost].[/][0;39m - Initializing Spring embedded WebApplicationContext
+2024-06-10 23:01:31.885 [main] [34mINFO [0;39m [36mo.s.b.w.s.c.ServletWebServerApplicationContext[0;39m - Root WebApplicationContext: initialization completed in 1400 ms
+2024-06-10 23:01:32.006 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Starting...
+2024-06-10 23:01:32.383 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.pool.HikariPool[0;39m - HikariPool-1 - Added connection org.mariadb.jdbc.MariaDbConnection@50dc49e1
+2024-06-10 23:01:32.387 [main] [34mINFO [0;39m [36mcom.zaxxer.hikari.HikariDataSource[0;39m - HikariPool-1 - Start completed.
+2024-06-10 23:01:32.449 [main] [34mINFO [0;39m [36mo.h.jpa.internal.util.LogHelper[0;39m - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-10 23:01:32.499 [main] [34mINFO [0;39m [36morg.hibernate.Version[0;39m - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-10 23:01:32.529 [main] [34mINFO [0;39m [36mo.h.c.i.RegionFactoryInitiator[0;39m - HHH000026: Second-level cache disabled
+2024-06-10 23:01:32.757 [main] [34mINFO [0;39m [36mo.s.o.j.p.SpringPersistenceUnitInfo[0;39m - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-10 23:01:33.772 [main] [34mINFO [0;39m [36mo.h.e.t.j.p.i.JtaPlatformInitiator[0;39m - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-10 23:01:33.775 [main] [34mINFO [0;39m [36mo.s.o.j.LocalContainerEntityManagerFactoryBean[0;39m - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-10 23:01:33.971 [main] [34mINFO [0;39m [36mo.s.d.j.r.query.QueryEnhancerFactory[0;39m - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-10 23:01:35.419 [main] [34mINFO [0;39m [36mc.g.z.c.s.SecurityConfiguration[0;39m - security filter실행
+2024-06-10 23:01:35.431 [main] [34mINFO [0;39m [36mo.s.s.web.DefaultSecurityFilterChain[0;39m - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@51ba8929, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30b5225b, org.springframework.security.web.context.SecurityContextHolderFilter@57dee2b9, org.springframework.security.web.header.HeaderWriterFilter@39889671, org.springframework.web.filter.CorsFilter@3b035d0c, org.springframework.security.web.authentication.logout.LogoutFilter@648100de, com.github.zillow.web.filters.JwtAuthenticationFilter@304f4888, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59960ae9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1263664f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35b97c69, org.springframework.security.web.session.SessionManagementFilter@7b4e5982, org.springframework.security.web.access.ExceptionTranslationFilter@644e9953, org.springframework.security.web.access.intercept.AuthorizationFilter@71120f9a]
+2024-06-10 23:01:35.674 [main] [34mINFO [0;39m [36mo.a.coyote.http11.Http11NioProtocol[0;39m - Starting ProtocolHandler ["http-nio-8080"]
+2024-06-10 23:01:35.691 [main] [34mINFO [0;39m [36mo.s.b.w.e.tomcat.TomcatWebServer[0;39m - Tomcat started on port 8080 (http) with context path ''
+2024-06-10 23:01:35.701 [main] [34mINFO [0;39m [36mcom.github.zillow.ZillowApplication[0;39m - Started ZillowApplication in 5.748 seconds (process running for 6.289)
+2024-06-10 23:01:41.858 [http-nio-8080-exec-1] [34mINFO [0;39m [36mo.a.c.c.C.[Tomcat].[localhost].[/][0;39m - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10 23:01:41.858 [http-nio-8080-exec-1] [34mINFO [0;39m [36mo.s.web.servlet.DispatcherServlet[0;39m - Initializing Servlet 'dispatcherServlet'
+2024-06-10 23:01:41.860 [http-nio-8080-exec-1] [34mINFO [0;39m [36mo.s.web.servlet.DispatcherServlet[0;39m - Completed initialization in 1 ms
+2024-06-10 23:01:42.155 [http-nio-8080-exec-1] [34mINFO [0;39m [36mc.g.zillow.web.filters.LoggingFilter[0;39m - GET/api/detail 요청이 들어왔습니다.
+2024-06-10 23:01:42.181 [http-nio-8080-exec-1] [34mINFO [0;39m [36mc.g.z.service.ExternalAPIService[0;39m - Built URL: https://app.scrapeak.com/v1/scrapers/zillow/property?api_key=90237350-6c25-4e9f-b566-40c53ce26f2d&zpid=2239122
+2024-06-10 23:01:46.958 [http-nio-8080-exec-1] [34mINFO [0;39m [36mc.g.zillow.web.filters.LoggingFilter[0;39m - GET/api/detail가 상태 200 로 응답이 나갑니다.
