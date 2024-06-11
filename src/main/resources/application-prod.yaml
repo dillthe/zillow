@@ -23,4 +23,4 @@ Spring:
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_MARIA_PASSWORD}
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://database-1.c5cm8q4o8kra.us-east-1.rds.amazonaws.com:3306/zillow?useUnicode=true&characterEncoding=UTF-8
+    url: ${DATABASE_URL}
