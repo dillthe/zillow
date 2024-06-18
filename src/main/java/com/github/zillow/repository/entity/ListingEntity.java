@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
@@ -36,10 +35,10 @@ public class ListingEntity {
     private String zipcode;
 
     @Column(name = "latitude")
-    private BigDecimal latitude;
+    private double latitude;
 
     @Column(name = "longitude")
-    private BigDecimal longitude;
+    private double longitude;
 
     @Column(name = "price")
     private double price;
