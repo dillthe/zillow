@@ -5,10 +5,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
-@Setter
+//@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -30,4 +29,16 @@ public class ImageEntity {
     @Column(name = "sequence")
     private Integer sequence;
 
+    // Update methods for @Setter
+    public void updateImage(String image) {
+        this.image = image;
+    }
+
+    public void updateSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
+
+    public void updateListingEntity(ListingEntity listingEntity) {
+        this.listingEntity = listingEntity;
+    }
 }
