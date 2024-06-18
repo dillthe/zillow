@@ -15,3 +15,14 @@ logging:
       hibernate:
         SQL:DEBUG
 
+
+api:
+  key: ${API_KEY}
+
+jwt:
+  secret-key-source: ${JWT_SECRET_KEY}
+
+Spring:
+  datasource:
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
