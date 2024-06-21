@@ -61,4 +61,6 @@ public class InterestEntity {
 
     @Column(name="home_type")
     private String homeType;
+
+//    public static InterestEntity ListingEntityOf(ListingEntity listingEntity){}
 }

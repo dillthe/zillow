@@ -2,6 +2,7 @@ package com.github.zillow.web.controller;
 
 import com.github.zillow.service.ExternalAPIService;
 import com.github.zillow.service.exception.InvalidValueException;
+import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +41,7 @@ public class ExternalAPIController implements ApiController{
     }
 //
     @GetMapping("/detail")
-    public String getDetailData(@RequestParam Integer zpid) {
+    public String getDetailData(@RequestParam @Positive Integer zpid) {
         try {
             return externalAPIService.getDetailData(zpid);
         } catch (RuntimeException e) {

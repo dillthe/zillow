@@ -1,7 +1,6 @@
 package com.github.zillow.service;
 
 import com.github.zillow.config.security.JwtTokenProvider;
-import com.github.zillow.config.security.PasswordEncoderConfig;
 import com.github.zillow.repository.entity.UserEntity;
 import com.github.zillow.repository.roles.Roles;
 import com.github.zillow.repository.roles.RolesRepository;
@@ -22,7 +21,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.Base64;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -97,7 +95,7 @@ public class AuthService {
 
             return jwtTokenProvider.createToken(email, roles);
         } catch (Exception e){
-            e.printStackTrace();
+//            e.printStackTrace();
             throw new NotAcceptException("로그인 할 수 없습니다.");
         }
     }

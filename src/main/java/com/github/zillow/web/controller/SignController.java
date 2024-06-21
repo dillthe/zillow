@@ -15,9 +15,16 @@ public class SignController implements ApiController {
     private final AuthService authService;
 
     @PostMapping("/sign/register")
-    public String register(@RequestBody SignUp signUpRequest){
+    public String register(@RequestBody SignUp signUpRequest,  HttpServletResponse httpServletResponse){
         boolean isSuccess= authService.signUp(signUpRequest);
-        return isSuccess? "회원가입 성공하셨습니다." : "회원가입 실패하였습니다.";
+//        return isSuccess? "회원가입 성공하셨습니다." : "회원가입 실패하였습니다.";
+        if (isSuccess) {
+            httpServletResponse.setStatus(HttpServletResponse.SC_CREATED); // HTTP 201 Created
+            return "회원가입 성공하셨습니다.";
+        } else {
+            httpServletResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST); // HTTP 400 Bad Request
+            return "회원가입 실패하였습니다.";
+        }
     }
 
     @PostMapping("/sign/login")
