@@ -1,5 +1,6 @@
 package com.github.zillow.web.controller;
 
+import com.github.zillow.repository.entity.HomeType;
 import com.github.zillow.repository.entity.ListingEntity;
 import com.github.zillow.repository.entity.SearchQueryEntity;
 import com.github.zillow.service.ListingService;
@@ -76,7 +77,7 @@ public class ListingController implements ApiController{
 
     @Operation(summary = "집 유형(Home Type)으로 검색하기")
     @GetMapping("/search/hometype")
-    public ResponseEntity<List<ListingEntity>> getDataByHomeType(@RequestParam String homeType) {
+    public ResponseEntity<List<ListingEntity>> getDataByHomeType(@RequestParam HomeType homeType) {
         List<ListingEntity> listingsFiltedByHomeType = listingService.findListingsByHomeType(homeType);
         return ResponseEntity.ok(listingsFiltedByHomeType);
     }

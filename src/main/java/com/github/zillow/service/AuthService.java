@@ -23,7 +23,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -91,11 +90,11 @@ public class AuthService {
                     .stream()
                     .map(UserPrincipalRoles::getRoles)
                     .map(Roles::getName)
-                    .collect(Collectors.toList());
+                    .toList();
+
 
             return jwtTokenProvider.createToken(email, roles);
         } catch (Exception e){
-//            e.printStackTrace();
             throw new NotAcceptException("로그인 할 수 없습니다.");
         }
     }

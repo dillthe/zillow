@@ -1,5 +1,6 @@
 package com.github.zillow.service;
 
+import com.github.zillow.repository.entity.HomeType;
 import com.github.zillow.repository.entity.ListingEntity;
 import com.github.zillow.repository.listing.ListingRepository;
 import lombok.RequiredArgsConstructor;
@@ -55,8 +56,8 @@ public class ListingService {
         return listingsFilteredByBathrooms;
     }
 
-    public List<ListingEntity> findListingsByHomeType(String homeType) {
-        List<ListingEntity> listingsFilteredByHomeType = listingRepository.findByHomeType(homeType);
+    public List<ListingEntity> findListingsByHomeType(HomeType homeType) {
+        List<ListingEntity> listingsFilteredByHomeType = listingRepository.findByHomeType(String.valueOf(homeType));
         return listingsFilteredByHomeType;
     }
 
