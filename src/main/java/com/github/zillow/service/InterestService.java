@@ -34,22 +34,12 @@ public class InterestService {
         ListingEntity listingEntity = listingRepository.findById(interestBody.getListingId())
                 .orElseThrow(() -> new NotFoundException("부동산 정보를 찾을 수 없습니다."));
         InterestEntity interestEntity = InterestMapper.INSTANCE.idAndInterestBodyToInterestEntity(null,interestBody);
-        interestEntity.setAddress(listingEntity.getAddress());
-        interestEntity.setCity(listingEntity.getCity());
-        interestEntity.setState(listingEntity.getState());
-        interestEntity.setBedrooms(listingEntity.getBedrooms());
-        interestEntity.setBathrooms(listingEntity.getBathrooms());
-        interestEntity.setPrice(listingEntity.getPrice());
-        interestEntity.setZipcode(listingEntity.getZipcode());
-        interestEntity.setSqft(listingEntity.getSqft());
-        interestEntity.setHomeStatus(listingEntity.getHomeStatus());
-        interestEntity.setHomeType(listingEntity.getHomeType());
+        interestEntity.listingEntityOf(listingEntity);
 
        InterestEntity interestEntityCreated;
         try {
             interestEntityCreated = interestRepository.save(interestEntity);
-        } //여기서 왜 에러문 메세지가 출력이 안되고,2024-04-16T15:42:27.853-04:00 ERROR 33048 --- [nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry '1-10213017' for key 'interest.user_id 이런식으로 에러메세지만 뜬다.
-        catch (DataIntegrityViolationException e) {
+        } catch (DataIntegrityViolationException e) {
             //e.printStackTrace();
             throw new NotAcceptException("관심 부동산 리스트에 이미 저장되어 있습니다.");
         } catch (RuntimeException e) {

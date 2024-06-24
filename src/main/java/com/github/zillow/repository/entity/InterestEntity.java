@@ -2,11 +2,7 @@ package com.github.zillow.repository.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.*;
 
 
 @Getter
@@ -14,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "interest")
 public class InterestEntity {
     @Id
@@ -62,5 +59,16 @@ public class InterestEntity {
     @Column(name="home_type")
     private String homeType;
 
-//    public static InterestEntity ListingEntityOf(ListingEntity listingEntity){}
+    public void listingEntityOf(ListingEntity listingEntity) {
+        this.address = listingEntity.getAddress();
+        this.city = listingEntity.getCity();
+        this.state = listingEntity.getState();
+        this.bedrooms = listingEntity.getBedrooms();
+        this.bathrooms = listingEntity.getBathrooms();
+        this.price = listingEntity.getPrice();
+        this.zipcode = listingEntity.getZipcode();
+        this.sqft = listingEntity.getSqft();
+        this.homeStatus = listingEntity.getHomeStatus();
+        this.homeType = listingEntity.getHomeType();
+    }
 }
