@@ -33,6 +33,7 @@ public class InterestService {
     public Integer addToInterest(InterestBody interestBody) {
         ListingEntity listingEntity = listingRepository.findById(interestBody.getListingId())
                 .orElseThrow(() -> new NotFoundException("부동산 정보를 찾을 수 없습니다."));
+
         InterestEntity interestEntity = InterestMapper.INSTANCE.idAndInterestBodyToInterestEntity(null,interestBody);
         interestEntity.listingEntityOf(listingEntity);
 
@@ -40,7 +41,6 @@ public class InterestService {
         try {
             interestEntityCreated = interestRepository.save(interestEntity);
         } catch (DataIntegrityViolationException e) {
-            //e.printStackTrace();
             throw new NotAcceptException("관심 부동산 리스트에 이미 저장되어 있습니다.");
         } catch (RuntimeException e) {
             throw new InvalidValueException("관심 부동산 저장하는 도중 예기치 않은 오류가 발생했습니다.");

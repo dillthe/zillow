@@ -2,6 +2,7 @@ package com.github.zillow.repository.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.github.zillow.web.dto.InterestBody;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -61,6 +62,7 @@ public class ListingEntity {
     @JsonManagedReference
     @OneToMany(mappedBy = "listingEntity", fetch = FetchType.EAGER)
     private List<ImageEntity> imageList;
+
 }
 
 //외부API리스트 불러와지면 로컬DB에 저장할 때 쓰기.

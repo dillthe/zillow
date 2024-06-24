@@ -54,10 +54,12 @@ public class InterestEntity {
     private Integer sqft;
 
     @Column(name="home_status")
-    private String homeStatus;
+    @Enumerated(EnumType.STRING)
+    private HomeStatus homeStatus;
 
     @Column(name="home_type")
-    private String homeType;
+    @Enumerated(EnumType.STRING)
+    private HomeType homeType;
 
     public void listingEntityOf(ListingEntity listingEntity) {
         this.address = listingEntity.getAddress();
@@ -68,7 +70,7 @@ public class InterestEntity {
         this.price = listingEntity.getPrice();
         this.zipcode = listingEntity.getZipcode();
         this.sqft = listingEntity.getSqft();
-        this.homeStatus = listingEntity.getHomeStatus();
-        this.homeType = listingEntity.getHomeType();
+        this.homeStatus = HomeStatus.valueOf(listingEntity.getHomeStatus());
+        this.homeType = HomeType.valueOf(listingEntity.getHomeType());
     }
 }

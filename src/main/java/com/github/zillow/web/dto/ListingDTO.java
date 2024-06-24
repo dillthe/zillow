@@ -2,6 +2,7 @@ package com.github.zillow.web.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.github.zillow.repository.entity.HomeStatus;
 import lombok.*;
 
 @Getter
@@ -22,6 +23,6 @@ public class ListingDTO {
     private Integer bedrooms;
     private Integer bathrooms;
     private Integer sqft;
-    private String homeStatus;
+    private HomeStatus homeStatus;
     private String homeType;
 }
