@@ -2,10 +2,8 @@ package com.github.zillow.web.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import jakarta.persistence.Column;
+import com.github.zillow.repository.entity.HomeStatus;
 import lombok.*;
-
-import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -19,12 +17,12 @@ public class ListingDTO {
     private String city;
     private String state;
     private String zipcode;
-    private BigDecimal Latitude;
-    private BigDecimal Longitude;
-    private Double price;
+    private double Latitude;
+    private double Longitude;
+    private double price;
     private Integer bedrooms;
     private Integer bathrooms;
     private Integer sqft;
-    private String homeStatus;
+    private HomeStatus homeStatus;
     private String homeType;
 }

@@ -2,12 +2,13 @@ package com.github.zillow.repository.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.github.zillow.web.dto.InterestBody;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.math.BigDecimal;
+
 import java.util.List;
 
 @Getter
@@ -35,10 +36,10 @@ public class ListingEntity {
     private String zipcode;
 
     @Column(name = "latitude")
-    private BigDecimal latitude;
+    private double latitude;
 
     @Column(name = "longitude")
-    private BigDecimal longitude;
+    private double longitude;
 
     @Column(name = "price")
     private double price;
@@ -58,9 +59,10 @@ public class ListingEntity {
     @Column(name="home_type")
     private String homeType;
 
-//    @JsonManagedReference
-    @OneToMany(mappedBy = "listingEntity", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "listingEntity", fetch = FetchType.EAGER)
     private List<ImageEntity> imageList;
+
 }
 
 //외부API리스트 불러와지면 로컬DB에 저장할 때 쓰기.

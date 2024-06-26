@@ -1,13 +1,14 @@
 package com.github.zillow.service;
 
-import com.github.zillow.repository.listing.ListingRepository;
+import com.github.zillow.repository.entity.HomeType;
 import com.github.zillow.repository.entity.ListingEntity;
+import com.github.zillow.repository.listing.ListingRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import java.math.BigDecimal;
+
 import java.util.List;
 
 
@@ -16,6 +17,8 @@ import java.util.List;
 @Service
 public class ListingService {
     private final ListingRepository listingRepository;
+
+
 
     public Page<ListingEntity> findAllListings(Pageable pageable) {
         Page<ListingEntity> listings = listingRepository.findAll(pageable);
@@ -53,8 +56,8 @@ public class ListingService {
         return listingsFilteredByBathrooms;
     }
 
-    public List<ListingEntity> findListingsByHomeType(String homeType) {
-        List<ListingEntity> listingsFilteredByHomeType = listingRepository.findByHomeType(homeType);
+    public List<ListingEntity> findListingsByHomeType(HomeType homeType) {
+        List<ListingEntity> listingsFilteredByHomeType = listingRepository.findByHomeType(String.valueOf(homeType));
         return listingsFilteredByHomeType;
     }
 

@@ -30,7 +30,7 @@ public class SecurityConfiguration {
                         .sessionManagement((session)->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                         .formLogin((auth)->auth.disable()).rememberMe((remember)->remember.disable())
                         .authorizeHttpRequests((auth)->auth
-                                            .requestMatchers("/resources/static/**"/*와일드카드로넣어줌*/,"/api/sign/*").permitAll()
+                                            .requestMatchers("/resources/static/**"/*와일드카드로넣어줌*/,"/api/sign/*","/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                                             .requestMatchers("/api/**","/api/search/**","api/interest/**").hasRole("USER"))
 //                                            .requestMatchers(ADMIN_URL).hasRole("ADMIN"))
 //                        .exceptionHandling()
