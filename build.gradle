@@ -1,0 +1,79 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.github'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.30'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Test Lombok
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+    implementation 'org.glassfish:jakarta.el:4.0.2'
+
+    //Mapstruct
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+    //JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //Swagger
+//    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.3'
+
+    // security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // jwt
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    //최신 버전으로 변경
+    implementation 'com.google.protobuf:protobuf-java:3.21.12'
+
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.14.0' // 최신 버전으로 변경
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0' // 최신 버전으로 변경
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.0' // 최신 버전으로 변경
+
+    //비동기방식 작업처리 WebClient사용
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.named('bootJar'){
+    mainClass = 'com.github.zillow.ZillowApplication'
+}
