@@ -6,6 +6,7 @@ import com.github.zillow.repository.listing.ListingRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +26,21 @@ public class ListingService {
         return listings;
     }
 
-    public Page<ListingEntity> findListingsWithinPriceRange(Double minPrice, Double maxPrice, Pageable pageable) {
-        Page<ListingEntity> listingsFilteredByPrice = listingRepository.findByPriceBetween(minPrice, maxPrice, pageable);
-        return listingsFilteredByPrice;
+//    public Page<ListingEntity> findListingsWithinPriceRange(Double minPrice, Double maxPrice, Pageable pageable) {
+//        Page<ListingEntity> listingsFilteredByPrice = listingRepository.findByPriceBetween(minPrice, maxPrice, pageable);
+//        return listingsFilteredByPrice;
+//    }
+
+    //커서 기반 페이지네이션
+    public List<ListingEntity> findListingsWithinPriceRange(Double minPrice, Double maxPrice, Integer cursor, int size) {
+        if (cursor == null) {
+            // 첫 페이지, 커서가 없음
+            return listingRepository.findTopByPriceBetweenOrderByListingIdAsc(minPrice, maxPrice, PageRequest.of(0, size));
+        } else {
+            // 커서를 기준으로 다음 데이터 세트를 가져옴 //커서가 데이터의 Id가 된다.
+            //가격이 주어진 범위 내에 있고, ID가 주어진 값보다 큰 데이터를 ID순서로 오름차순정렬
+            return listingRepository.findByPriceBetweenAndListingIdGreaterThanOrderByListingIdAsc(minPrice, maxPrice, cursor, PageRequest.of(0, size));
+        }
     }
 
     public List<ListingEntity> findListingsByZipcode(String zipcode) {
